@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gospel Music</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body.dark {
+      background-color: #111;
+      color: #eee;
+    }
+  </style>
+</head>
+<body class="bg-white text-black dark:bg-black dark:text-white transition duration-300">
+
+  <!-- HEADER -->
+  <header class="flex justify-between items-center px-4 py-2 bg-white dark:bg-gray-900 shadow sticky top-0 z-50">
+    <h1 class="text-xl font-bold text-green-600">Gospel Music</h1>
+    
+      <button id="menuToggle">☰</button>
+      <div id="menuDropdown" class="dropdown hidden">
+        <button onclick="toggleTheme()">Toggle Dark Mode</button>
+        <a href="privacy.html" class="block px-4 py-2 text-left">Privacy Policy</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- VIDEO GRID -->
+  <main id="videoContainer" class="p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <!-- Videos added by script.js -->
+  </main>
+
+  <!-- VIDEO MODAL -->
+  <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 hidden z-50 flex items-center justify-center">
+    <div class="bg-white rounded-md overflow-hidden shadow-lg w-[90%] max-w-3xl relative">
+      <button id="closeModal" class="absolute top-2 right-2 text-white bg-red-600 px-2 py-1 text-xs rounded hover:bg-red-700">×</button>
+      <div class="aspect-video w-full">
+        <iframe id="videoPlayer" class="w-full h-full" frameborder="0" allowfullscreen allow="autoplay"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIVACY MODAL -->
+  <div id="privacyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+    <div class="bg-white dark:bg-gray-900 text-gray-800 dark:text-white rounded-lg shadow-lg p-6 max-w-lg w-full relative">
+      <button onclick="closePrivacyModal()" class="absolute top-2 right-2 text-red-600 text-lg">×</button>
+      <h2 class="text-xl font-semibold mb-4">Privacy Policy</h2>
+      <p class="text-sm leading-relaxed">
+        This page displays gospel music manually curated. No data is collected or tracked.
+      </p>
+    </div>
+  </div>
+
+  <script src="gospel.js"></script>
+  <script>
+    // Menu Toggle
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('menuDropdown').classList.toggle('hidden');
+    });
+
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+      localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    }
+
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark');
+    }
+
+    function openPrivacyModal() {
+      document.getElementById('privacyModal').classList.remove('hidden');
+      document.getElementById('menuDropdown').classList.add('hidden');
+    }
+
+    function closePrivacyModal() {
+      document.getElementById('privacyModal').classList.add('hidden');
+    }
+  </script>
+</body>
+</html>

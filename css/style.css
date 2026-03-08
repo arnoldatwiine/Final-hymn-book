@@ -1,0 +1,136 @@
+/* === Base Styles === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+/* === Header === */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background-color: #e6ffe6;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.dark .header {
+  background-color: #1e1e1e;
+}
+
+.site-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #15803d;
+}
+
+/* === Menu Button === */
+.menu {
+  position: relative;
+}
+#menuToggle {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.dropdown {
+  position: absolute;
+  right: 0;
+  top: 2.5rem;
+  background: #f0fff4;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 50;
+}
+.dropdown.hidden {
+  display: none;
+}
+.dropdown button,
+.dropdown a {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  text-align: left;
+  color: #166534;
+  text-decoration: none;
+}
+.dropdown button:hover,
+.dropdown a:hover {
+  background-color: #d1fae5;
+}
+.dark .dropdown {
+  background-color: #2d2d2d;
+}
+.dark .dropdown a,
+.dark .dropdown button {
+  color: #bbf7d0;
+}
+
+/* === Main Layout === */
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+/* === Card Styles === */
+.card {
+  flex: 1 1 280px;
+  max-width: 360px;
+  background-color: #ecfdf5;
+  border-radius: 1rem;
+  padding: 2rem;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  color: inherit;
+}
+.card:hover {
+  transform: translateY(-5px);
+  background-color: #d1fae5;
+}
+.dark .card {
+  background-color: #2a2a2a;
+}
+.dark .card:hover {
+  background-color: #3a3a3a;
+}
+
+.emoji {
+  font-size: 2.8rem;
+}
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #15803d;
+  margin: 0.5rem 0;
+}
+.card-desc {
+  color: #065f46;
+  font-size: 1rem;
+}
+.dark .card-title,
+.dark .card-desc {
+  color: #bbf7d0;
+}

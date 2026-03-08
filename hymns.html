@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ugandan Catholic Hymns</title>
+  <link rel="stylesheet" href="hymns.css" />
+</head>
+<body class="white">
+
+  <!-- Header -->
+  <header class="header">
+    <h1 class="header-title">Ugandan Catholic Hymns</h1>
+  </header>
+
+  <!-- Search Bar -->
+  <input type="text" id="search" class="search-bar" placeholder="Search hymns..." />
+
+  <!-- Hymn List -->
+  <div id="hymn-list" class="hymn-container"></div>
+
+  <!-- Lyrics Display -->
+  <div id="lyrics-display" class="lyrics-container" style="display: none;">
+    <h2 id="lyrics-title" class="lyrics-title"></h2>
+    <p id="lyrics-text" class="lyrics-text"></p>
+    <div class="lyrics-buttons">
+      <button onclick="goBack()">Back</button>
+      <button onclick="prevHymn()">Previous</button>
+      <button onclick="nextHymn()">Next</button>
+      <button onclick="shareHymn()">Share</button>
+      <button onclick="downloadHymn()">Download</button>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
