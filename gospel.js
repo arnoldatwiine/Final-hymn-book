@@ -26,7 +26,21 @@ const gospelVideos = [
   { id: "fcYO2T31kD8", title: "Mukama Reba Naija" },
   { id: "Y7nsAFbgvJM", title: "Alleluia Himbisa Ruhanga" },
   { id: "kNJseaIz6Co", title: "Ndi Mukristu" },
-  { id: "SYJAfTSAzE0", title: "Jangu Yesu" }
+  { id: "SYJAfTSAzE0", title: "Jangu Yesu" },
+  { id: "ylniJ3jdndQ", title: "Ku Oraimuky Omu Kasheeshe" },
+  { id: "stN8NpXkWfk", title: "Yesu Tinkiri Kyengyengye" },
+  { id: "SgtP7n3ncHk", title: "Ozirwe Noha" },
+  { id: "rBioMB-eZPc", title: "Runyankole Rukiga Hymns Nonstop" },
+  { id: "K3KqHnVq9oM", title: "Eshagama y'Omujuni" },
+  { id: "nK6hKqP7S2o", title: "Murwan Ahabwa Yesu" },
+  { id: "Vv4z0J9nK4A", title: "Tusingize Mukama Omwana Wa Daudi" },
+  { id: "gC0X9oPq3eM", title: "Nkaabaasibwa Ki Mmany Endimi Zoona" },
+  { id: "Q3Yy9b1J7p0", title: "Yesu Ogume Ondindire" },
+  { id: "8k3vQyY1d9A", title: "Hariho Enshuro Yeshagama" },
+  { id: "L5s7g1aD3wE", title: "Mukama Ninkutakira" },
+  { id: "2xP6fZ4Y8Ks", title: "Imwe Abakristaayo Mwena" },
+  { id: "p9D1s3V0KjM", title: "Ai Mukama Waitu Emanueli" },
+  { id: "w4R9g7T2QnA", title: "Yesu Tukutegyereize" }
 ];
 
 const container = document.getElementById("videoContainer");
