@@ -40,7 +40,17 @@ const gospelVideos = [
   { id: "L5s7g1aD3wE", title: "Mukama Ninkutakira" },
   { id: "2xP6fZ4Y8Ks", title: "Imwe Abakristaayo Mwena" },
   { id: "p9D1s3V0KjM", title: "Ai Mukama Waitu Emanueli" },
-  { id: "w4R9g7T2QnA", title: "Yesu Tukutegyereize" }
+  { id: "w4R9g7T2QnA", title: "Yesu Tukutegyereize" },
+  { id: "0iEdlL51QNU", title: "Neijja Kanyijje Ai Mukama" },
+{ id: "Klb1ecstt3k", title: "Kwekusiima Kwange" },
+{ id: "7kuaCaJu2yU", title: "Niwowe Rutare Rwanjye" },
+{ id: "ptAQoUSuxsY", title: "Nseyeya Bukalango" },
+{ id: "RtQzWU6PYM0", title: "Yezu Wangye Nkuramya" },
+{ id: "6W_jxOQ_Id0", title: "Omwiguru Abahikirire Nibashemererwa" },
+{ id: "m_I6_rkJWpA", title: "Nkubone By Rwabigwi" },
+{ id: "qZ3kiN2R6Ls", title: "Twebaze Mapeera" },
+{ id: "Vhk6oM55dog", title: "Nze Laba Nkulinda" },
+{ id: "lty_s8HuVAY", title: "Ninkunda Maria" }
 ];
 
 const container = document.getElementById("videoContainer");
