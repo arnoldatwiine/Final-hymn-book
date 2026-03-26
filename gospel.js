@@ -67,6 +67,31 @@ gospelVideos.forEach(video => {
   card.onclick = () => openModal(video.id);
   container.appendChild(card);
 });
+function renderVideos(list) {
+  container.innerHTML = "";
+  list.forEach(video => {
+    const card = document.createElement("div");
+    card.className = "bg-white rounded shadow hover:bg-red-50 cursor-pointer transition overflow-hidden";
+    card.innerHTML = `
+      <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" class="w-full h-48 object-cover" />
+      <div class="p-3">
+        <h3 class="text-sm font-semibold line-clamp-2">${video.title}</h3>
+      </div>
+    `;
+    card.onclick = () => openModal(video.id);
+    container.appendChild(card);
+  });
+}
+
+// Initial render
+renderVideos(gospelVideos);
+
+// Search filter
+searchInput.addEventListener("input", () => {
+  const value = searchInput.value.toLowerCase();
+  const filtered = gospelVideos.filter(video => video.title.toLowerCase().includes(value));
+  renderVideos(filtered);
+});
 
 function openModal(videoId) {
   const modal = document.getElementById("videoModal");
