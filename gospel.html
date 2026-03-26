@@ -11,9 +11,6 @@
       background-color: #111;
       color: #eee;
     }
-    mark {
-      background-color: #fef08a; /* Tailwind yellow-200 equivalent */
-    }
   </style>
 </head>
 <body class="bg-white text-black dark:bg-black dark:text-white transition duration-300">
@@ -66,61 +63,28 @@
   <!-- EXISTING JS -->
   <script src="gospel.js"></script>
 
-  <!-- ENHANCED SEARCH SCRIPT -->
+  <!-- SEARCH FUNCTIONALITY -->
   <script>
     const searchInput = document.getElementById('search');
     const container = document.getElementById('videoContainer');
 
-    // No results message
-    let noResults = document.createElement('p');
-    noResults.textContent = "No videos found.";
-    noResults.className = "text-center text-gray-500 col-span-full my-4 hidden";
-    container.parentNode.insertBefore(noResults, container.nextSibling);
-
-    function escapeRegExp(string) {
-      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    }
-
-    function filterAndHighlight() {
+    function filterCards() {
       const value = searchInput.value.toLowerCase();
-      const keywords = value.trim().split(/\s+/).filter(k => k !== '');
-      let anyVisible = false;
-
-      const cards = container.querySelectorAll('div');
+      const cards = container.querySelectorAll('div'); // each card is a div
       cards.forEach(card => {
         const titleEl = card.querySelector('h3');
         if (titleEl) {
-          let text = titleEl.textContent;
-          let lowerText = text.toLowerCase();
-
-          let matchesAll = keywords.every(k => lowerText.includes(k));
-
-          if (matchesAll) {
-            anyVisible = true;
-            card.style.display = '';
-
-            // Highlight matches
-            let highlighted = text;
-            keywords.forEach(k => {
-              const re = new RegExp(escapeRegExp(k), 'gi');
-              highlighted = highlighted.replace(re, match => `<mark>${match}</mark>`);
-            });
-            titleEl.innerHTML = highlighted;
-          } else {
-            card.style.display = 'none';
-            titleEl.innerHTML = text; // reset highlights if hidden
-          }
+          const text = titleEl.textContent.toLowerCase();
+          card.style.display = text.includes(value) ? '' : 'none';
         }
       });
-
-      noResults.style.display = anyVisible ? 'none' : '';
     }
 
-    // Listen for typing
-    searchInput.addEventListener('input', filterAndHighlight);
+    // Apply filter when typing
+    searchInput.addEventListener('input', filterCards);
 
-    // Watch dynamically added cards
-    const observer = new MutationObserver(filterAndHighlight);
+    // Watch for new cards added dynamically by gospel.js
+    const observer = new MutationObserver(filterCards);
     observer.observe(container, { childList: true });
   </script>
 
