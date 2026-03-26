@@ -67,9 +67,22 @@ gospelVideos.forEach(video => {
   card.onclick = () => openModal(video.id);
   container.appendChild(card);
 });
-function renderVideos(list) {
+
+const searchInput = document.getElementById("search");
+
+searchInput.addEventListener("input", function() {
+  const value = this.value.toLowerCase();
+
+  // Clear all current video cards
   container.innerHTML = "";
-  list.forEach(video => {
+
+  // Filter gospel videos by title
+  const filteredVideos = gospelVideos.filter(video => 
+    video.title.toLowerCase().includes(value)
+  );
+
+  // Re-create cards for filtered videos (uses your existing card structure)
+  filteredVideos.forEach(video => {
     const card = document.createElement("div");
     card.className = "bg-white rounded shadow hover:bg-red-50 cursor-pointer transition overflow-hidden";
     card.innerHTML = `
@@ -78,20 +91,9 @@ function renderVideos(list) {
         <h3 class="text-sm font-semibold line-clamp-2">${video.title}</h3>
       </div>
     `;
-    card.onclick = () => openModal(video.id);
+    card.onclick = () => openModal(video.id); // keeps your existing modal function
     container.appendChild(card);
   });
-}
-
-// Initial render
-renderVideos(gospelVideos);
-
-// Search filter
-searchInput.addEventListener("input", () => {
-  const value = searchInput.value.toLowerCase();
-  const filtered = gospelVideos.filter(video => video.title.toLowerCase().includes(value));
-  renderVideos(filtered);
-});
 
 function openModal(videoId) {
   const modal = document.getElementById("videoModal");
