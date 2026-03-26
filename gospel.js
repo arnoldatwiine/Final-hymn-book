@@ -68,33 +68,6 @@ gospelVideos.forEach(video => {
   container.appendChild(card);
 });
 
-const searchInput = document.getElementById("search");
-
-searchInput.addEventListener("input", function() {
-  const value = this.value.toLowerCase();
-
-  // Clear all current video cards
-  container.innerHTML = "";
-
-  // Filter gospel videos by title
-  const filteredVideos = gospelVideos.filter(video => 
-    video.title.toLowerCase().includes(value)
-  );
-
-  // Re-create cards for filtered videos (uses your existing card structure)
-  filteredVideos.forEach(video => {
-    const card = document.createElement("div");
-    card.className = "bg-white rounded shadow hover:bg-red-50 cursor-pointer transition overflow-hidden";
-    card.innerHTML = `
-      <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" class="w-full h-48 object-cover" />
-      <div class="p-3">
-        <h3 class="text-sm font-semibold line-clamp-2">${video.title}</h3>
-      </div>
-    `;
-    card.onclick = () => openModal(video.id); // keeps your existing modal function
-    container.appendChild(card);
-  });
-
 function openModal(videoId) {
   const modal = document.getElementById("videoModal");
   const player = document.getElementById("videoPlayer");
