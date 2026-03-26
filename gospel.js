@@ -50,7 +50,8 @@ const gospelVideos = [
 { id: "rHrlQOA0IK0", title: "Nkubone By Rwabigwi" },
 { id: "3GHjBvIxn8g", title: "Twebaze Mapeera" },
 { id: "Ef43agFFPWg", title: "Nze Laba Nkulinda" },
-{ id: "SlhUxZbAvpc", title: "Ninkunda Maria" }
+{ id: "SlhUxZbAvpc", title: "Ninkunda Maria" },
+ { id: "ac1zrgLfz9Y", title: "I will never fight by YOUTH FRIENDS OF JESUS" } 
 ];
 
 const container = document.getElementById("videoContainer");
