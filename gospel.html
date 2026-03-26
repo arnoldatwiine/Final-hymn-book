@@ -63,7 +63,7 @@
   <!-- EXISTING JS -->
   <script src="gospel.js"></script>
 
-  <!-- SEARCH FUNCTIONALITY -->
+  <!-- YOUR ORIGINAL SEARCH (UNCHANGED) -->
   <script>
     const searchInput = document.getElementById('search');
     const container = document.getElementById('videoContainer');
@@ -80,16 +80,40 @@
       });
     }
 
-    // Apply filter when typing
     searchInput.addEventListener('input', filterCards);
 
-    // Watch for new cards added dynamically by gospel.js
     const observer = new MutationObserver(filterCards);
     observer.observe(container, { childList: true });
   </script>
 
+  <!-- ✅ ADDED FIX (DO NOT REMOVE YOUR CODE ABOVE) -->
   <script>
-    // Menu Toggle
+    function improvedFilter() {
+      const value = document.getElementById('search').value.toLowerCase();
+      const container = document.getElementById('videoContainer');
+
+      // target ONLY real video cards
+      const cards = container.querySelectorAll('div.bg-white');
+
+      cards.forEach(card => {
+        const titleEl = card.querySelector('h3');
+        if (!titleEl) return;
+
+        const text = titleEl.textContent.toLowerCase();
+        card.style.display = text.includes(value) ? '' : 'none';
+      });
+    }
+
+    document.getElementById('search').addEventListener('input', improvedFilter);
+
+    const fixObserver = new MutationObserver(improvedFilter);
+    fixObserver.observe(document.getElementById('videoContainer'), {
+      childList: true,
+      subtree: true
+    });
+  </script>
+
+  <script>
     document.getElementById('menuToggle').addEventListener('click', () => {
       document.getElementById('menuDropdown').classList.toggle('hidden');
     });
