@@ -19,27 +19,30 @@
   <header class="flex justify-between items-center px-4 py-2 bg-white dark:bg-gray-900 shadow sticky top-0 z-50">
     <h1 class="text-xl font-bold text-green-600">Gospel Music</h1>
     
-      <button id="menuToggle">☰</button>
-      <div id="menuDropdown" class="dropdown hidden">
-        <button onclick="toggleTheme()">Toggle Dark Mode</button>
-        <a href="privacy.html" class="block px-4 py-2 text-left">Privacy Policy</a>
-      </div>
+    <button id="menuToggle">☰</button>
+    <div id="menuDropdown" class="dropdown hidden">
+      <button onclick="toggleTheme()">Toggle Dark Mode</button>
+      <a href="privacy.html" class="block px-4 py-2 text-left">Privacy Policy</a>
     </div>
   </header>
 
-<main id="videoContainer" class="p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-  <!-- Your existing gospel video cards appear here -->
-</main>
-  
+  <!-- SEARCH BAR -->
+  <input 
+    type="text" 
+    id="search" 
+    placeholder="Search gospel videos..." 
+    class="w-full max-w-md mx-auto block p-3 my-4 text-black bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+/>
+
   <!-- VIDEO GRID -->
- <main id="videoContainer" class="p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 text-black">
-    <!-- Videos added by script.js -->
+  <main id="videoContainer" class="p-4 grid gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <!-- Videos added by gospel.js -->
   </main>
 
   <!-- VIDEO MODAL -->
   <div id="videoModal" class="fixed inset-0 bg-black bg-opacity-80 hidden z-50 flex items-center justify-center">
     <div class="bg-white rounded-md overflow-hidden shadow-lg w-[90%] max-w-3xl relative">
-   <<button id="closeModal" class="absolute top-2 right-2 text-white bg-red-600 px-2 py-1 text-xs rounded hover:bg-red-700">×</button>
+      <button id="closeModal" class="absolute top-2 right-2 text-white bg-red-600 px-2 py-1 text-xs rounded hover:bg-red-700">×</button>
       <div class="aspect-video w-full">
         <iframe id="videoPlayer" class="w-full h-full" frameborder="0" allowfullscreen allow="autoplay"></iframe>
       </div>
@@ -57,7 +60,39 @@
     </div>
   </div>
 
+  <!-- EXISTING JS -->
   <script src="gospel.js"></script>
+
+  <!-- INLINE SEARCH FUNCTIONALITY (Does not change your existing JS) -->
+  <script>
+    window.addEventListener('load', () => {
+      const searchInput = document.getElementById("search");
+      const container = document.getElementById("videoContainer");
+
+      searchInput.addEventListener("input", function() {
+        const value = this.value.toLowerCase();
+        container.innerHTML = "";
+
+        const filtered = window.gospelVideos.filter(video => 
+          video.title.toLowerCase().includes(value)
+        );
+
+        filtered.forEach(video => {
+          const card = document.createElement("div");
+          card.className = "bg-white rounded shadow hover:bg-red-50 cursor-pointer transition overflow-hidden";
+          card.innerHTML = `
+            <img src="https://img.youtube.com/vi/${video.id}/hqdefault.jpg" class="w-full h-48 object-cover" />
+            <div class="p-3">
+              <h3 class="text-sm font-semibold line-clamp-2">${video.title}</h3>
+            </div>
+          `;
+          card.onclick = () => openModal(video.id);
+          container.appendChild(card);
+        });
+      });
+    });
+  </script>
+
   <script>
     // Menu Toggle
     document.getElementById('menuToggle').addEventListener('click', () => {
