@@ -1,6 +1,6 @@
 const gospelVideos = [
-  { id: "DjCHz8UzuxQ", title: "8 Catholic Church Songs of Faith" },
-  { id: "RPwxdS5gRqI", title: "Beautiful Catholic Church Hymns" },
+  { id: "DjCHz8UzuxQ", title: "songs of Comfort" },
+  { id: "RPwxdS5gRqI", title: "songs of courage" },
   { id: "cDdniihKBzI", title: "Here I Am, Lord" },
   { id: "6HjrG51xEyM", title: "Songs of the Servant" },
   { id: "fYz14jEoaeU", title: "Make Me A Channel of Your Peace" },
@@ -31,7 +31,7 @@ const gospelVideos = [
   { id: "stN8NpXkWfk", title: "Yesu Tinkiri Kyengyengye" },
   { id: "SgtP7n3ncHk", title: "Ozirwe Noha" },
   { id: "rBioMB-eZPc", title: "Runyankole Rukiga Hymns Nonstop" },
-  { id: "K3KqHnVq9oM", title: "Eshagama y'Omujuni" },
+  { id: "YoEjx2UHRN8", title: "Eshagama y'Omujuni" },
   { id: "nK6hKqP7S2o", title: "Murwan Ahabwa Yesu" },
   { id: "Vv4z0J9nK4A", title: "Tusingize Mukama Omwana Wa Daudi" },
   { id: "gC0X9oPq3eM", title: "Nkaabaasibwa Ki Mmany Endimi Zoona" },
