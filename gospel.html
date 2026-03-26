@@ -19,7 +19,15 @@
   <header class="flex justify-between items-center px-4 py-2 bg-white dark:bg-gray-900 shadow sticky top-0 z-50">
     <h1 class="text-xl font-bold text-green-600">Gospel Music</h1>
     
-    <button id="menuToggle">☰</button>
+    <!-- ✅ ADDED Home button (nothing removed) -->
+    <div class="flex items-center gap-3">
+      <a href="home.html" class="px-3 py-1 bg-green-600 text-white text-sm rounded hover:bg-green-700">
+        Home
+      </a>
+
+      <button id="menuToggle">☰</button>
+    </div>
+
     <div id="menuDropdown" class="dropdown hidden">
       <button onclick="toggleTheme()">Toggle Dark Mode</button>
       <a href="privacy.html" class="block px-4 py-2 text-left">Privacy Policy</a>
@@ -86,13 +94,12 @@
     observer.observe(container, { childList: true });
   </script>
 
-  <!-- ✅ ADDED FIX (DO NOT REMOVE YOUR CODE ABOVE) -->
+  <!-- ✅ ADDED FIX -->
   <script>
     function improvedFilter() {
       const value = document.getElementById('search').value.toLowerCase();
       const container = document.getElementById('videoContainer');
 
-      // target ONLY real video cards
       const cards = container.querySelectorAll('div.bg-white');
 
       cards.forEach(card => {
